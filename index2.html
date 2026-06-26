@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muzqaymoq Mo'jizasi | To'liq Sayt</title>
+    <style>
+        /* --- UMUMIY STILLAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fff5f5;
+            color: #333;
+        }
+
+        /* --- NAVIGATSIYA (MENU) --- */
+        header {
+            background-color: #ffffff;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b81;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b81;
+        }
+
+        /* --- 1. ASOSIY BANNER (HERO) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 8%;
+            min-height: 85vh;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff5f5 100%);
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #ff6b81;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: #ff6b81;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 107, 129, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 129, 0.6);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 90%;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- SEKSIYALAR UCHUN UMUMIY KLASS --- */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-size: 16px;
+        }
+
+        /* --- 2. MENU BO'LIMI (PRODUCTS) --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            text-align: center;
+            border: 1px solid #fff0f2;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 107, 129, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .product-card p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 15px;
+            height: 42px;
+            overflow: hidden;
+        }
+
+        .price-tag {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff6b81;
+        }
+
+        .add-to-cart {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #ff6b81;
+        }
+
+        /* --- 3. BIZ HAQIMIZDA BO'LIMI --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .about-img {
+            flex: 1;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* --- 4. ALOQA BO'LIMI --- */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ff6b81;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.03);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+            background-color: #fbfbfb;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #ff6b81;
+        }
+
+        .submit-btn {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #e05267;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a252f;
+            color: #95a5a6;
+            text-align: center;
+            padding: 40px;
+            font-size: 15px;
+        }
+
+        footer span {
+            color: #ff6b81;
+        }
+
+        /* --- RESPONSIVE (MOBIL) DESIGN --- */
+        @media (max-width: 968px) {
+            .hero, .about-container, .contact-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            .nav-links {
+                display: none; /* Mobil menyuni soddalashtirish */
+            }
+            .contact-form, .contact-info {
+                width: 100%;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- MENYU (HEADER) -->
+    <header>
+        <a href="#" class="logo">🍦 IceCream Paradise</a>
+        <ul class="nav-links">
+            <li><a href="#home">Bosh sahifa</a></li>
+            <li><a href="#menu">Menyu</a></li>
+            <li><a href="#about">Biz haqimizda</a></li>
+            <li><a href="#contact">Aloqa</a></li>
+        </ul>
+    </header>
+
+    <!-- 1. BOSH SAHIFA (HERO) -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Har bir qoshiqda <br><span>Shirin Baxt!</span></h1>
+            <p>Tabiiy mevalar va eng sara qaymoqlardan tayyorlangan, qalbingizga salqinlik va quvonch bag'ishlovchi haqiqiy muzqaymoqlar dunyosiga xush kelibsiz!</p>
+            <a href="#menu" class="btn">Menyuni ko'rish</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&auto=format&fit=crop&q=60" alt="Muzqaymoq">
+        </div>
+    </section>
+
+    <!-- 2. MENYU BO'LIMI -->
+    <section id="menu">
+        <h2 class="section-title">Bizning Shirin Menyuyimiz</h2>
+        <p class="section-subtitle">Eng ko'p buyurtma beriladigan va seviladigan ta'mlar</p>
+
+        <div class="product-grid">
+            <!-- 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&auto=format&fit=crop&q=60" alt="Qulupnayli">
+                <h3>Qulupnayli Noziklik</h3>
+                <p>Yangi terilgan qulupnay va shirin qaymoq uyg'unligi.</p>
+                <div class="price-tag">
+                    <span class="price">15,000 UZS</span>
+                    <button class="add-to-cart">Sotib olish</button>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=500&auto=format&fit=crop&q=60" alt="Shokoladli">
+                <h3>Belgiya Shokoladi</h3>
+                <p>Haqiqiy quyuq shokolad va unutilmas shirin lazzat.</p>
+                <div class="price-tag">
+                    <span class="price">18,000 UZS</span>
+                    <button class="add-to-cart">Sotib olish</button>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=500&auto=format&fit=crop&q=60" alt="Yalpizli">
+                <h3>Yalpizli Salqinlik</h3>
+                <p>Muzdek yalpiz ta'mi va shokolad bo'lakchalari.</p>
+                <div class="price-tag">
+                    <span class="price">16,000 UZS</span>
+                    <button class="add-to-cart">Sotib olish</button>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1580741569354-08fed7fc1143?w=500&auto=format&fit=crop&q=60" alt="Mevali">
+                <h3>Tropik Miks</h3>
+                <p>Mango, kivi va banan ta'mlariga boy muzqaymoq.</p>
+                <div class="price-tag">
+                    <span class="price">20,000 UZS</span>
+                    <button class="add-to-cart">Sotib olish</button>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1560008511-11c63416e52d?w=500&auto=format&fit=crop&q=60" alt="Pista">
+                <h3>Eron Pistasi</h3>
+                <p>Haqiqiy pista mag'izlari qo'shilgan an'anaviy ta'm.</p>
+                <div class="price-tag">
+                    <span class="price">22,000 UZS</span>
+                    <button class="add-to-cart">Sotib olish</button>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&auto=format&fit=crop&q=60" alt="Desert">
+                <h3>Karamelli Shodlik</h3>
+                <p>Iliq karamel va vanilli muzqaymoqning ajoyib balansi.</p>
+                <div class="price-tag">
+                    <span class="price">19,000 UZS</span>
+                    <button class="add-to-cart">Sotib olish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. BIZ HAQIMIZDA BO'LIMI -->
+    <section id="about" style="background-color: #fff1f3;">
+        <h2 class="section-title">Biz Haqimizda</h2>
+        <p class="section-subtitle">Kichik tariximiz va oliy maqsadimiz</p>
+
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1567206563066-ec5887df9da2?w=600&auto=format&fit=crop&q=60" alt="Bizning do'kon">
+            </div>
+            <div class="about-text">
+                <h3>Sifat – Bizning Eng Oliy Qadriyatimiz!</h3>
+                <p>Biz o'z faoliyatimizni kichik oilaviy kafedan boshlaganmiz. Bugungi kunda esa mijozlarimizga eng sara, mutlaqo tabiiy mahsulotlardan tayyorlangan muzqaymoqlarni ulashib kelmoqdamiz.</p>
+                <p>Hech qanday sun'iy bo'yoqlar yoki kimyoviy qo'shimchalardan foydalanmaymiz. Har bir meva va sut mahsuloti qattiq nazorat ostida tanlab olinadi.</p>
+                <a href="#contact" class="btn">Biz bilan bog'lanish</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ALOQA BO'LIMI -->
+    <section id="contact">
+        <h2 class="section-title">Aloqa va Buyurtma</h2>
+        <p class="section-subtitle">Savollaringiz bormi? Bizga xabar qoldiring!</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Ma'lumotlarimiz</h3>
+                <p>📍 Manzil: Toshkent shahri, Chilonzor tumani</p>
+                <p>📞 Telefon: +998 90 123 45 67</p>
+                <p>✉️ Email: info@icecreampaparadise.uz</p>
+                <p>🕒 Ish vaqti: 09:00 - 23:00</p>
+            </div>
+
+            <div class="contact-form">
+                <form action="#">
+                    <div class="form-group">
+                        <input type="text" placeholder="Ismingiz" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email manzilingiz" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Xabaringiz yoki buyurtmangiz..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Xabarni yuborish</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span>IceCream Paradise</span>. Barcha huquqlar himoyalangan. Created for GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
