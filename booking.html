@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceZone - Premium Muzqaymoq Bron Tizimi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: #fdf2f8;
+            color: #3f2f35;
+        }
+
+        /* Yuqori Menyu */
+        .navbar {
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            box-shadow: 0 4px 30px rgba(219, 39, 119, 0.05);
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #db2777;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            margin-left: 30px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #db2777;
+        }
+
+        /* Banner Qismi */
+        .banner {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle, #fce7f3 0%, #fdf2f8 100%);
+        }
+
+        .banner h1 {
+            font-size: 2.8rem;
+            color: #9d174d;
+            margin-bottom: 20px;
+        }
+
+        /* Qidiruv va Bron Oynasi */
+        .search-bar {
+            background: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(157, 23, 77, 0.1);
+            border: 1px solid #fbcfe8;
+        }
+
+        .search-item {
+            flex: 1;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .search-item:not(:last-child) {
+            border-right: 1px solid #fce7f3;
+        }
+
+        .search-item label {
+            font-size: 0.8rem;
+            color: #db2777;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .search-item input, .search-item select {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1rem;
+            color: #4b5563;
+            background: transparent;
+        }
+
+        .search-btn {
+            background: #db2777;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #be185d;
+        }
+
+        /* Muzqaymoq Paketlari */
+        .packages {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .packages h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #9d174d;
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .box {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .box:hover {
+            border-color: #fbcfe8;
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #9d174d;
+        }
+
+        .box p {
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .box-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #fdf2f8;
+            color: #db2777;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .box-btn:hover {
+            background: #db2777;
+            color: white;
+        }
+
+        footer {
+            background: #4c0519;
+            color: #fce7f3;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="brand">🍦 IceZone</a>
+        <nav class="nav-links">
+            <a href="#">Bosh sahifa</a>
+            <a href="#">Xizmatlar</a>
+            <a href="#">Aksiyalar</a>
+            <a href="#">Aloqa</a>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <h1>Muzqaymoq Kechasini Rejalashtiring</h1>
+        <div class="search-bar">
+            <div class="search-item">
+                <label>Joylashuv</label>
+                <input type="text" placeholder="Qaysi kafega?" value="Markaziy xiyobon">
+            </div>
+            <div class="search-item">
+                <label>Soni</label>
+                <select>
+                    <option>1 kishi</option>
+                    <option>2 kishi (Oila)</option>
+                    <option>5+ kishi (Bayram)</option>
+                </select>
+            </div>
+            <div class="search-item">
+                <label>Vaqti</label>
+                <input type="time" value="18:00">
+            </div>
+            <button class="search-btn">Band qilish</button>
+        </div>
+    </section>
+
+    <section class="packages">
+        <h2>Katta va Shirin To'plamlar</h2>
+        <div class="box-container">
+            <div class="box">
+                <div class="icon">🍧</div>
+                <h3>Romantic Date</h3>
+                <p>Ikki kishilik maxsus Italiya gelatosi va shirin qulupnayli kokteyllar jamlanmasi.</p>
+                <a href="#" class="box-btn">Tanlash</a>
+            </div>
+            <div class="box">
+                <div class="icon">🍨</div>
+                <h3>Family Party</h3>
+                <p>Oila a'zolaringiz uchun 6 xil turdagi mevali va shokoladli katta muzqaymoq assortisi.</p>
+                <a href="#" class="box-btn">Tanlash</a>
+            </div>
+            <div class="box">
+                <div class="icon">🎂</div>
+                <h3>Ice Cream Cake</h3>
+                <p>Tug'ilgan kun va bayramlar uchun buyurtma asosida tayyorlanadigan maxsus muzqaymoqli tort.</p>
+                <a href="#" class="box-btn">Tanlash</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 IceZone Platformasi. Eng shirin xizmatlar faqat siz uchun.</p>
+    </footer>
+
+</body>
+</html>
